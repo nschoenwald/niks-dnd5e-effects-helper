@@ -1,0 +1,525 @@
+{
+  "NRB": {
+    "Settings": {
+      "ConditionBuilder": {
+        "Name": "Visual Condition Builder",
+        "Hint": "Edit the conditions of active effects and their changes with menus instead of JSON. You can still switch to the JSON editor from the builder."
+      }
+    },
+    "Builder": {
+      "Title": "Conditions",
+      "IntroRoll": "This change only applies to {roll} that match these conditions. Without conditions it always applies.",
+      "IntroEffect": "The whole effect is suppressed while these conditions don't match. They are checked against the actor, not against a roll.",
+      "IntroGeneric": "The change only applies when these conditions match. Without conditions it always applies.",
+      "ShowAll": "Show fields for other rolls",
+      "Preview": "JSON",
+      "RawJson": "Edit JSON",
+      "AddRule": "Add condition",
+      "AddGroup": "Add group",
+      "Remove": "Remove",
+      "EmptyRoot": "No conditions: always applies.",
+      "EmptyGroup": "Empty group.",
+      "Yes": "Yes",
+      "No": "No",
+      "JsonPlaceholder": "Value, e.g. str, 5 or true",
+      "JsonListPlaceholder": "List, e.g. [\"str\", \"dex\"]",
+      "Unreadable": "These conditions aren't valid JSON, so they open in the JSON editor."
+    },
+    "GroupOp": {
+      "AND": "All of these",
+      "OR": "Any of these",
+      "NOR": "None of these",
+      "NAND": "Not all of these",
+      "XOR": "An odd number of these"
+    },
+    "Op": {
+      "exact": "is",
+      "in": "is one of",
+      "gt": "is more than",
+      "gte": "is at least",
+      "lt": "is less than",
+      "lte": "is at most",
+      "has": "includes",
+      "hasany": "includes any of",
+      "hasall": "includes all of",
+      "icontains": "contains",
+      "istartswith": "starts with",
+      "empty": "is empty",
+      "statusLevel": "is active, level at least"
+    },
+    "Group": {
+      "Roll": "Roll",
+      "Attack": "Attack",
+      "Damage": "Damage",
+      "Item": "Item & Activity",
+      "Actor": "Actor",
+      "Advanced": "Advanced"
+    },
+    "Field": {
+      "rollType": "Roll type",
+      "ability": "Ability",
+      "skill": "Skill",
+      "tool": "Tool",
+      "proficient": "Proficient",
+      "attackClassification": "Attack classification",
+      "attackType": "Attack type",
+      "attackMode": "Attack mode",
+      "damageType": "Damage type",
+      "critical": "Critical hit",
+      "physicalProperties": "Physical damage properties",
+      "itemName": "Item name",
+      "itemIdentifier": "Item identifier",
+      "itemProperties": "Item properties",
+      "activityType": "Activity type",
+      "status": "Condition",
+      "level": "Character level",
+      "cr": "Challenge rating",
+      "hpPct": "Hit points (%)",
+      "custom": "Custom data path"
+    },
+    "RollType": {
+      "ability": "Ability check or save",
+      "skill": "Skill check",
+      "tool": "Tool check",
+      "attack": "Attack roll",
+      "initiative": "Initiative",
+      "concentration": "Concentration save",
+      "death": "Death save"
+    },
+    "Advantage": {
+      "Advantage": {
+        "Label": "Advantage",
+        "Hint": "Adds a source of advantage. Advantage and disadvantage from different sources cancel each other out."
+      },
+      "Disadvantage": {
+        "Label": "Disadvantage",
+        "Hint": "Adds a source of disadvantage. Advantage and disadvantage from different sources cancel each other out."
+      },
+      "ForceAdvantage": {
+        "Label": "Always advantage",
+        "Hint": "The roll has advantage, whatever other sources say."
+      },
+      "ForceDisadvantage": {
+        "Label": "Always disadvantage",
+        "Hint": "The roll has disadvantage, whatever other sources say."
+      },
+      "NoDisadvantage": {
+        "Label": "Can't have disadvantage",
+        "Hint": "Disadvantage from other sources is ignored. Advantage still works."
+      },
+      "NoAdvantage": {
+        "Label": "Can't have advantage",
+        "Hint": "Advantage from other sources is ignored. Disadvantage still works."
+      }
+    },
+    "Damage": {
+      "All": "All damage types"
+    },
+    "Attributes": {
+      "Pick": "Choose attribute",
+      "Title": "Attributes",
+      "Search": "Search attributes",
+      "Intro": "Choose an attribute on the left to see what it does, which change type to use and what value it expects.",
+      "Key": "Key",
+      "Type": "Change type",
+      "Value": "Value",
+      "Choices": "Possible values",
+      "Use": "Use this attribute",
+      "Example": "Example:",
+      "Types": "Change type: {types}",
+      "TypeWarning": "{type} usually doesn't fit this attribute. Use {recommended}.",
+      "Recommended": "{type} (recommended)"
+    },
+    "Mode": {
+      "Advantage": "Advantage",
+      "Disadvantage": "Disadvantage",
+      "Normal": "Normal"
+    },
+    "Encumbrance": {
+      "encumbered": "Encumbered",
+      "heavilyEncumbered": "Heavily encumbered",
+      "maximum": "Maximum capacity",
+      "overall": "All thresholds"
+    },
+    "Terrain": {
+      "all": "All difficult terrain",
+      "magical": "Magical difficult terrain",
+      "nonmagical": "Nonmagical difficult terrain"
+    },
+    "Param": {
+      "ability": "Ability",
+      "skill": "Skill",
+      "tool": "Tool",
+      "attackType": "Attack type",
+      "damageType": "Damage type",
+      "movement": "Movement type",
+      "sense": "Sense",
+      "threshold": "Threshold",
+      "classId": "Class or feature",
+      "classIdHint": "e.g. barbarian",
+      "scaleId": "Scale value",
+      "scaleIdHint": "e.g. rages"
+    },
+    "Value": {
+      "number": "A number.",
+      "formula": "A formula. Roll data like @prof or @abilities.dex.mod and dice work.",
+      "mode": "1 for advantage, -1 for disadvantage, 0 for a normal roll.",
+      "set": "One entry per change. With Add it's added; with Subtract, or Add with a leading minus (-fire), it's removed.",
+      "choice": "One of the listed values.",
+      "text": "Text.",
+      "json": "JSON object.",
+      "boolean": "true or false.",
+      "color": "A color code like #ff8800.",
+      "acFormula": "A formula, or a JSON object with formula, label, armored and shielded."
+    },
+    "AttrGroup": {
+      "Abilities": "Abilities & Saves",
+      "Skills": "Skills",
+      "Tools": "Tools",
+      "Attacks": "Attacks & Damage",
+      "Defenses": "Defenses",
+      "HitPoints": "Hit Points",
+      "Movement": "Movement & Senses",
+      "Traits": "Traits & Proficiencies",
+      "Attributes": "Other Attributes",
+      "Flags": "Special Traits",
+      "Scale": "Class Scale Values",
+      "Sheet": "Sheet & Items",
+      "Token": "Token Light"
+    },
+    "Attr": {
+      "abilityScore": {
+        "Label": "Ability score",
+        "Tip": "Upgrade or Override sets the score. Add raises it, and \"2 <= 20\" adds 2 but not above 20."
+      },
+      "abilityMax": {
+        "Label": "Ability score maximum",
+        "Tip": "Raises the highest score the ability can reach, e.g. 22 for an epic boon."
+      },
+      "abilityCheckBonus": {
+        "Label": "Ability check bonus"
+      },
+      "abilityCheckMode": {
+        "Label": "Ability check advantage",
+        "Tip": "Add gives one source of advantage (1) or disadvantage (-1). Override forces it. Upgrade with 0 prevents disadvantage, Downgrade with 0 prevents advantage."
+      },
+      "abilitySaveBonus": {
+        "Label": "Saving throw bonus"
+      },
+      "abilitySaveMode": {
+        "Label": "Saving throw advantage",
+        "Tip": "Add gives one source of advantage (1) or disadvantage (-1). Override forces it. Upgrade with 0 prevents disadvantage, Downgrade with 0 prevents advantage."
+      },
+      "abilitySaveProficiency": {
+        "Label": "Saving throw proficiency"
+      },
+      "abilityAttackBonus": {
+        "Label": "Attack bonus with this ability"
+      },
+      "abilityAttackMode": {
+        "Label": "Attack advantage with this ability",
+        "Tip": "Applies to attack rolls that use this ability. 1 for advantage, -1 for disadvantage."
+      },
+      "allChecksBonus": {
+        "Label": "All ability checks: bonus"
+      },
+      "allChecksMode": {
+        "Label": "All ability checks: advantage",
+        "Tip": "Covers every ability, skill and tool check. 1 for advantage, -1 for disadvantage."
+      },
+      "allChecksProficiency": {
+        "Label": "All ability checks: minimum proficiency",
+        "Tip": "0.5 adds half proficiency to checks without proficiency, like Jack of All Trades."
+      },
+      "allSavesBonus": {
+        "Label": "All saving throws: bonus"
+      },
+      "allSavesMode": {
+        "Label": "All saving throws: advantage",
+        "Tip": "1 for advantage, -1 for disadvantage on every saving throw."
+      },
+      "allSavesProficiency": {
+        "Label": "All saving throws: proficiency"
+      },
+      "skillBonus": {
+        "Label": "Skill check bonus"
+      },
+      "skillMode": {
+        "Label": "Skill check advantage",
+        "Tip": "1 for advantage, -1 for disadvantage. Upgrade with 0 prevents disadvantage."
+      },
+      "skillProficiency": {
+        "Label": "Skill proficiency",
+        "Tip": "Upgrade only raises the level, so a better proficiency from elsewhere stays. 2 is expertise."
+      },
+      "skillPassive": {
+        "Label": "Passive skill bonus"
+      },
+      "skillMinimum": {
+        "Label": "Skill check minimum roll",
+        "Tip": "Upgrade to 10 so the d20 counts as at least 10, like Reliable Talent."
+      },
+      "allSkillsBonus": {
+        "Label": "All skill checks: bonus"
+      },
+      "allSkillsMode": {
+        "Label": "All skill checks: advantage",
+        "Tip": "1 for advantage, -1 for disadvantage on every skill check."
+      },
+      "allSkillsProficiency": {
+        "Label": "All skill checks: minimum proficiency",
+        "Tip": "0.5 adds half proficiency to skills without proficiency."
+      },
+      "toolBonus": {
+        "Label": "Tool check bonus"
+      },
+      "toolProficiency": {
+        "Label": "Tool proficiency",
+        "Tip": "Upgrade only raises the level. Works even if the character doesn't list the tool yet. 2 is expertise."
+      },
+      "allToolsBonus": {
+        "Label": "All tool checks: bonus"
+      },
+      "allToolsProficiency": {
+        "Label": "All tool checks: minimum proficiency",
+        "Tip": "0.5 adds half proficiency to tools without proficiency."
+      },
+      "attackBonus": {
+        "Label": "Attack roll bonus by attack type"
+      },
+      "attackMode": {
+        "Label": "Attack advantage by attack type",
+        "Tip": "1 for advantage, -1 for disadvantage on this kind of attack."
+      },
+      "allAttacksBonus": {
+        "Label": "All attack rolls: bonus"
+      },
+      "allAttacksMode": {
+        "Label": "All attack rolls: advantage",
+        "Tip": "1 for advantage, -1 for disadvantage on every attack roll."
+      },
+      "damageBonus": {
+        "Label": "Damage bonus by attack type",
+        "Tip": "Put the damage type in brackets after the dice, e.g. 1d6[fire] or @abilities.cha.mod[radiant]."
+      },
+      "spellDC": {
+        "Label": "Spell save DC bonus"
+      },
+      "acBonus": {
+        "Label": "Armor class bonus"
+      },
+      "acFormula": {
+        "Label": "Armor class formula",
+        "Tip": "Adds a way to calculate AC; the highest valid one is used. As JSON you can restrict it, e.g. {\"formula\": \"10 + @abilities.dex.mod + @abilities.con.mod\", \"armored\": false, \"label\": \"Unarmored Defense\"}."
+      },
+      "damageResistance": {
+        "Label": "Damage resistance",
+        "Tip": "Use ALL for every damage type."
+      },
+      "damageImmunity": {
+        "Label": "Damage immunity",
+        "Tip": "Use ALL for every damage type."
+      },
+      "damageVulnerability": {
+        "Label": "Damage vulnerability",
+        "Tip": "Use ALL for every damage type."
+      },
+      "damageModification": {
+        "Label": "Damage taken modification",
+        "Tip": "Added to damage of this type the creature takes. Negative numbers reduce it, e.g. -3 like Heavy Armor Master."
+      },
+      "conditionImmunity": {
+        "Label": "Condition immunity",
+        "Tip": "The creature can't gain this condition."
+      },
+      "hpTempMax": {
+        "Label": "Temporary maximum hit points",
+        "Tip": "Raises or lowers the maximum without healing. Never change current or temporary hit points with an effect."
+      },
+      "hpBonusOverall": {
+        "Label": "Hit point maximum bonus"
+      },
+      "hpBonusLevel": {
+        "Label": "Hit point bonus per level",
+        "Tip": "Multiplied by the character level, e.g. 2 for the Tough feat."
+      },
+      "hpThreshold": {
+        "Label": "Damage threshold",
+        "Tip": "Damage below this amount is ignored."
+      },
+      "hpMax": {
+        "Label": "Hit point maximum",
+        "Tip": "Only for NPCs. For characters, use the bonuses instead."
+      },
+      "speed": {
+        "Label": "Speed",
+        "Tip": "Upgrade only raises it, so a higher speed from elsewhere wins. A speed can only refer to speeds calculated before it, e.g. a fly speed may use the walking speed."
+      },
+      "speedBonus": {
+        "Label": "Bonus to all speeds",
+        "Tip": "Added to every speed the creature has."
+      },
+      "speedMultiplier": {
+        "Label": "Speed multiplier",
+        "Tip": "Multiplies every speed, e.g. 2 doubles it, 0.5 halves it."
+      },
+      "hover": {
+        "Label": "Can hover"
+      },
+      "ignoredTerrain": {
+        "Label": "Ignores difficult terrain",
+        "Tip": "Use all or nonmagical to ignore it entirely, or a terrain type for just that kind."
+      },
+      "senseRange": {
+        "Label": "Sense range",
+        "Tip": "Upgrade sets the range or raises it if the creature already has the sense. Override sets it exactly."
+      },
+      "size": {
+        "Label": "Size",
+        "Tip": "Override sets the size. Upgrade only makes the creature larger."
+      },
+      "creatureType": {
+        "Label": "Creature type"
+      },
+      "creatureSubtype": {
+        "Label": "Creature subtype"
+      },
+      "weaponProficiency": {
+        "Label": "Weapon proficiency",
+        "Tip": "sim and mar give all simple or martial weapons, or pick a single weapon."
+      },
+      "weaponMastery": {
+        "Label": "Weapon mastery",
+        "Tip": "Gives the mastery property of this weapon."
+      },
+      "weaponMasteryBonus": {
+        "Label": "Additional mastery property",
+        "Tip": "An extra mastery property for weapons whose mastery the character already has."
+      },
+      "armorProficiency": {
+        "Label": "Armor proficiency",
+        "Tip": "lgt, med, hvy for light, medium, heavy armor, shl for shields."
+      },
+      "proficiencyBonus": {
+        "Label": "Proficiency bonus"
+      },
+      "initiativeBonus": {
+        "Label": "Initiative bonus"
+      },
+      "initiativeMode": {
+        "Label": "Initiative advantage",
+        "Tip": "1 for advantage, -1 for disadvantage on initiative."
+      },
+      "concentrationBonus": {
+        "Label": "Concentration save bonus"
+      },
+      "concentrationMode": {
+        "Label": "Concentration save advantage",
+        "Tip": "1 for advantage, -1 for disadvantage on concentration saves."
+      },
+      "concentrationLimit": {
+        "Label": "Concentration limit"
+      },
+      "deathSaveMode": {
+        "Label": "Death save advantage",
+        "Tip": "1 for advantage, -1 for disadvantage on death saves."
+      },
+      "attunementMax": {
+        "Label": "Attunement slots"
+      },
+      "encumbranceMultiplier": {
+        "Label": "Carrying capacity multiplier",
+        "Tip": "2 doubles the threshold, like Powerful Build."
+      },
+      "encumbranceBonus": {
+        "Label": "Carrying capacity bonus"
+      },
+      "scaleValue": {
+        "Label": "Scale value",
+        "Tip": "Changes a scale value of a class, subclass or other feature, e.g. Rages of the Barbarian. The character's own scale values come first, with their current values."
+      },
+      "scaleNumber": {
+        "Label": "Scale value: number of dice",
+        "Tip": "For dice scale values, e.g. +1 turns 3d6 sneak attack into 4d6."
+      },
+      "scaleFaces": {
+        "Label": "Scale value: die size",
+        "Tip": "For dice scale values, e.g. +2 turns a d6 into a d8."
+      },
+      "scaleModifiers": {
+        "Label": "Scale value: dice modifiers",
+        "Tip": "Dice modifiers for dice scale values, e.g. r=1 rerolls ones."
+      },
+      "hiddenItems": {
+        "Label": "Hide items on the sheet",
+        "Tip": "An item ID, an identifier, or type:identifier such as spell:mage-hand."
+      },
+      "name": {
+        "Label": "Actor name",
+        "Tip": "{} stands for the current name. Changes the sheet's name, not the token's."
+      },
+      "img": {
+        "Label": "Actor image"
+      },
+      "lightDim": {
+        "Label": "Dim light radius"
+      },
+      "lightBright": {
+        "Label": "Bright light radius"
+      },
+      "lightColor": {
+        "Label": "Light color"
+      },
+      "lightAlpha": {
+        "Label": "Light intensity"
+      },
+      "lightAnimation": {
+        "Label": "Light animation"
+      },
+      "lightNegative": {
+        "Label": "Darkness instead of light",
+        "Tip": "true turns the light into darkness, e.g. for a Darkness effect."
+      },
+      "light": {
+        "Label": "Whole light configuration",
+        "Tip": "Sets several light values at once with one JSON object."
+      }
+    },
+    "References": {
+      "Pick": "Insert a reference",
+      "Title": "References",
+      "Search": "Search references",
+      "IntroActor": "Click a reference to insert it into the value. Scale values show this character's current value.",
+      "IntroItem": "Click a reference to insert it into the value. Open a class or subclass to see its scale values.",
+      "Group": {
+        "Common": "Common",
+        "Abilities": "Abilities",
+        "Classes": "Class levels",
+        "Scale": "Scale values"
+      },
+      "Prof": "Proficiency bonus",
+      "Level": "Character level",
+      "CR": "Challenge rating",
+      "HPMax": "Hit point maximum",
+      "SpellMod": "Spellcasting ability modifier",
+      "SpellDC": "Spell save DC",
+      "AbilityMod": "{ability} modifier",
+      "AbilityScore": "{ability} score",
+      "ClassLevels": "{name} levels",
+      "ScaleOf": "Scale values: {name}"
+    },
+    "ScalePart": {
+      "Number": "number of dice",
+      "Faces": "die size",
+      "Die": "die (e.g. d8)"
+    },
+    "Scale": {
+      "Own": "This character",
+      "Classes": "Classes",
+      "Subclasses": "Subclasses",
+      "Loading": "Loading scale values…",
+      "None": "No scale values.",
+      "TypeMismatch": "This is a {type} scale value, which this attribute doesn't fit. Pick the matching Scale value entry."
+    }
+  }
+}

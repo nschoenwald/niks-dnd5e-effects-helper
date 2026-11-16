@@ -1,0 +1,525 @@
+{
+  "NRB": {
+    "Settings": {
+      "ConditionBuilder": {
+        "Name": "Visueller Bedingungs-Editor",
+        "Hint": "Bedingungen von aktiven Effekten und ihren Änderungen mit Menüs statt JSON bearbeiten. Aus dem Editor heraus kannst du weiterhin zum JSON-Editor wechseln."
+      }
+    },
+    "Builder": {
+      "Title": "Bedingungen",
+      "IntroRoll": "Diese Änderung gilt nur für {roll}, auf die diese Bedingungen zutreffen. Ohne Bedingungen gilt sie immer.",
+      "IntroEffect": "Der ganze Effekt wird unterdrückt, solange diese Bedingungen nicht zutreffen. Sie werden am Akteur geprüft, nicht an einem Wurf.",
+      "IntroGeneric": "Die Änderung gilt nur, wenn diese Bedingungen zutreffen. Ohne Bedingungen gilt sie immer.",
+      "ShowAll": "Felder für andere Würfe anzeigen",
+      "Preview": "JSON",
+      "RawJson": "JSON bearbeiten",
+      "AddRule": "Bedingung hinzufügen",
+      "AddGroup": "Gruppe hinzufügen",
+      "Remove": "Entfernen",
+      "EmptyRoot": "Keine Bedingungen: gilt immer.",
+      "EmptyGroup": "Leere Gruppe.",
+      "Yes": "Ja",
+      "No": "Nein",
+      "JsonPlaceholder": "Wert, z. B. str, 5 oder true",
+      "JsonListPlaceholder": "Liste, z. B. [\"str\", \"dex\"]",
+      "Unreadable": "Diese Bedingungen sind kein gültiges JSON und werden deshalb im JSON-Editor geöffnet."
+    },
+    "GroupOp": {
+      "AND": "Alle davon",
+      "OR": "Mindestens eine davon",
+      "NOR": "Keine davon",
+      "NAND": "Nicht alle davon",
+      "XOR": "Eine ungerade Anzahl davon"
+    },
+    "Op": {
+      "exact": "ist",
+      "in": "ist eines von",
+      "gt": "ist größer als",
+      "gte": "ist mindestens",
+      "lt": "ist kleiner als",
+      "lte": "ist höchstens",
+      "has": "enthält",
+      "hasany": "enthält eines von",
+      "hasall": "enthält alle von",
+      "icontains": "enthält Text",
+      "istartswith": "beginnt mit",
+      "empty": "ist leer",
+      "statusLevel": "ist aktiv, mindestens Stufe"
+    },
+    "Group": {
+      "Roll": "Wurf",
+      "Attack": "Angriff",
+      "Damage": "Schaden",
+      "Item": "Gegenstand & Aktivität",
+      "Actor": "Akteur",
+      "Advanced": "Erweitert"
+    },
+    "Field": {
+      "rollType": "Wurfart",
+      "ability": "Attribut",
+      "skill": "Fertigkeit",
+      "tool": "Werkzeug",
+      "proficient": "Geübt",
+      "attackClassification": "Angriffsklassifizierung",
+      "attackType": "Angriffsart",
+      "attackMode": "Angriffsmodus",
+      "damageType": "Schadensart",
+      "critical": "Kritischer Treffer",
+      "physicalProperties": "Physische Schadenseigenschaften",
+      "itemName": "Name des Gegenstands",
+      "itemIdentifier": "Kennung des Gegenstands",
+      "itemProperties": "Eigenschaften des Gegenstands",
+      "activityType": "Aktivitätsart",
+      "status": "Zustand",
+      "level": "Charakterstufe",
+      "cr": "Herausforderungsgrad",
+      "hpPct": "Trefferpunkte (%)",
+      "custom": "Eigener Datenpfad"
+    },
+    "RollType": {
+      "ability": "Attributs- oder Rettungswurf",
+      "skill": "Fertigkeitswurf",
+      "tool": "Werkzeugwurf",
+      "attack": "Angriffswurf",
+      "initiative": "Initiative",
+      "concentration": "Konzentrationsrettungswurf",
+      "death": "Todesrettungswurf"
+    },
+    "Advantage": {
+      "Advantage": {
+        "Label": "Vorteil",
+        "Hint": "Fügt eine Quelle von Vorteil hinzu. Vorteil und Nachteil aus verschiedenen Quellen heben sich auf."
+      },
+      "Disadvantage": {
+        "Label": "Nachteil",
+        "Hint": "Fügt eine Quelle von Nachteil hinzu. Vorteil und Nachteil aus verschiedenen Quellen heben sich auf."
+      },
+      "ForceAdvantage": {
+        "Label": "Immer Vorteil",
+        "Hint": "Der Wurf hat Vorteil, egal was andere Quellen sagen."
+      },
+      "ForceDisadvantage": {
+        "Label": "Immer Nachteil",
+        "Hint": "Der Wurf hat Nachteil, egal was andere Quellen sagen."
+      },
+      "NoDisadvantage": {
+        "Label": "Kann keinen Nachteil haben",
+        "Hint": "Nachteil aus anderen Quellen wird ignoriert. Vorteil wirkt weiterhin."
+      },
+      "NoAdvantage": {
+        "Label": "Kann keinen Vorteil haben",
+        "Hint": "Vorteil aus anderen Quellen wird ignoriert. Nachteil wirkt weiterhin."
+      }
+    },
+    "Damage": {
+      "All": "Alle Schadensarten"
+    },
+    "Attributes": {
+      "Pick": "Attribut auswählen",
+      "Title": "Attribute",
+      "Search": "Attribute durchsuchen",
+      "Intro": "Wähle links ein Attribut, um zu sehen, was es bewirkt, welche Änderungsart passt und welchen Wert es erwartet.",
+      "Key": "Schlüssel",
+      "Type": "Änderungsart",
+      "Value": "Wert",
+      "Choices": "Mögliche Werte",
+      "Use": "Dieses Attribut verwenden",
+      "Example": "Beispiel:",
+      "Types": "Änderungsart: {types}",
+      "TypeWarning": "{type} passt meist nicht zu diesem Attribut. Verwende {recommended}.",
+      "Recommended": "{type} (empfohlen)"
+    },
+    "Mode": {
+      "Advantage": "Vorteil",
+      "Disadvantage": "Nachteil",
+      "Normal": "Normal"
+    },
+    "Encumbrance": {
+      "encumbered": "Belastet",
+      "heavilyEncumbered": "Schwer belastet",
+      "maximum": "Maximale Traglast",
+      "overall": "Alle Schwellen"
+    },
+    "Terrain": {
+      "all": "Jedes schwierige Gelände",
+      "magical": "Magisches schwieriges Gelände",
+      "nonmagical": "Nichtmagisches schwieriges Gelände"
+    },
+    "Param": {
+      "ability": "Attribut",
+      "skill": "Fertigkeit",
+      "tool": "Werkzeug",
+      "attackType": "Angriffsart",
+      "damageType": "Schadensart",
+      "movement": "Bewegungsart",
+      "sense": "Sinn",
+      "threshold": "Schwelle",
+      "classId": "Klasse oder Merkmal",
+      "classIdHint": "z. B. barbarian",
+      "scaleId": "Skalenwert",
+      "scaleIdHint": "z. B. rages"
+    },
+    "Value": {
+      "number": "Eine Zahl.",
+      "formula": "Eine Formel. Wurfdaten wie @prof oder @abilities.dex.mod und Würfel funktionieren.",
+      "mode": "1 für Vorteil, -1 für Nachteil, 0 für einen normalen Wurf.",
+      "set": "Ein Eintrag pro Änderung. Mit Hinzufügen wird er ergänzt; mit Abziehen, oder Hinzufügen mit vorangestelltem Minus (-fire), entfernt.",
+      "choice": "Einer der aufgeführten Werte.",
+      "text": "Text.",
+      "json": "JSON-Objekt.",
+      "boolean": "true oder false.",
+      "color": "Ein Farbcode wie #ff8800.",
+      "acFormula": "Eine Formel oder ein JSON-Objekt mit formula, label, armored und shielded."
+    },
+    "AttrGroup": {
+      "Abilities": "Attribute & Rettungswürfe",
+      "Skills": "Fertigkeiten",
+      "Tools": "Werkzeuge",
+      "Attacks": "Angriffe & Schaden",
+      "Defenses": "Verteidigung",
+      "HitPoints": "Trefferpunkte",
+      "Movement": "Bewegung & Sinne",
+      "Traits": "Merkmale & Übung",
+      "Attributes": "Weitere Werte",
+      "Flags": "Besondere Merkmale",
+      "Scale": "Skalenwerte von Klassen",
+      "Sheet": "Bogen & Gegenstände",
+      "Token": "Token-Licht"
+    },
+    "Attr": {
+      "abilityScore": {
+        "Label": "Attributswert",
+        "Tip": "Erhöhen oder Überschreiben setzt den Wert. Hinzufügen erhöht ihn, und \"2 <= 20\" addiert 2, aber nicht über 20."
+      },
+      "abilityMax": {
+        "Label": "Attributshöchstwert",
+        "Tip": "Erhöht den höchsten erreichbaren Wert, z. B. 22 für eine epische Gabe."
+      },
+      "abilityCheckBonus": {
+        "Label": "Bonus auf Attributswürfe"
+      },
+      "abilityCheckMode": {
+        "Label": "Vorteil auf Attributswürfe",
+        "Tip": "Hinzufügen gibt eine Quelle von Vorteil (1) oder Nachteil (-1). Überschreiben erzwingt ihn. Erhöhen mit 0 verhindert Nachteil, Verringern mit 0 verhindert Vorteil."
+      },
+      "abilitySaveBonus": {
+        "Label": "Bonus auf Rettungswürfe"
+      },
+      "abilitySaveMode": {
+        "Label": "Vorteil auf Rettungswürfe",
+        "Tip": "Hinzufügen gibt eine Quelle von Vorteil (1) oder Nachteil (-1). Überschreiben erzwingt ihn. Erhöhen mit 0 verhindert Nachteil, Verringern mit 0 verhindert Vorteil."
+      },
+      "abilitySaveProficiency": {
+        "Label": "Übung im Rettungswurf"
+      },
+      "abilityAttackBonus": {
+        "Label": "Angriffsbonus mit diesem Attribut"
+      },
+      "abilityAttackMode": {
+        "Label": "Vorteil auf Angriffe mit diesem Attribut",
+        "Tip": "Gilt für Angriffswürfe mit diesem Attribut. 1 für Vorteil, -1 für Nachteil."
+      },
+      "allChecksBonus": {
+        "Label": "Alle Attributswürfe: Bonus"
+      },
+      "allChecksMode": {
+        "Label": "Alle Attributswürfe: Vorteil",
+        "Tip": "Gilt für alle Attributs-, Fertigkeits- und Werkzeugwürfe. 1 für Vorteil, -1 für Nachteil."
+      },
+      "allChecksProficiency": {
+        "Label": "Alle Attributswürfe: Mindestübung",
+        "Tip": "0.5 addiert den halben Übungsbonus auf Würfe ohne Übung, wie Alleskönner."
+      },
+      "allSavesBonus": {
+        "Label": "Alle Rettungswürfe: Bonus"
+      },
+      "allSavesMode": {
+        "Label": "Alle Rettungswürfe: Vorteil",
+        "Tip": "1 für Vorteil, -1 für Nachteil auf jeden Rettungswurf."
+      },
+      "allSavesProficiency": {
+        "Label": "Alle Rettungswürfe: Übung"
+      },
+      "skillBonus": {
+        "Label": "Bonus auf Fertigkeitswurf"
+      },
+      "skillMode": {
+        "Label": "Vorteil auf Fertigkeitswurf",
+        "Tip": "1 für Vorteil, -1 für Nachteil. Erhöhen mit 0 verhindert Nachteil."
+      },
+      "skillProficiency": {
+        "Label": "Übung in der Fertigkeit",
+        "Tip": "Erhöhen hebt die Stufe nur an, eine bessere Übung aus anderer Quelle bleibt. 2 ist Expertise."
+      },
+      "skillPassive": {
+        "Label": "Bonus auf passiven Wert"
+      },
+      "skillMinimum": {
+        "Label": "Mindestwurf bei Fertigkeitswurf",
+        "Tip": "Auf 10 erhöhen, damit der W20 mindestens als 10 zählt, wie Verlässliches Talent."
+      },
+      "allSkillsBonus": {
+        "Label": "Alle Fertigkeitswürfe: Bonus"
+      },
+      "allSkillsMode": {
+        "Label": "Alle Fertigkeitswürfe: Vorteil",
+        "Tip": "1 für Vorteil, -1 für Nachteil auf jeden Fertigkeitswurf."
+      },
+      "allSkillsProficiency": {
+        "Label": "Alle Fertigkeitswürfe: Mindestübung",
+        "Tip": "0.5 addiert den halben Übungsbonus auf Fertigkeiten ohne Übung."
+      },
+      "toolBonus": {
+        "Label": "Bonus auf Werkzeugwurf"
+      },
+      "toolProficiency": {
+        "Label": "Übung mit dem Werkzeug",
+        "Tip": "Erhöhen hebt die Stufe nur an. Funktioniert auch, wenn der Charakter das Werkzeug noch nicht hat. 2 ist Expertise."
+      },
+      "allToolsBonus": {
+        "Label": "Alle Werkzeugwürfe: Bonus"
+      },
+      "allToolsProficiency": {
+        "Label": "Alle Werkzeugwürfe: Mindestübung",
+        "Tip": "0.5 addiert den halben Übungsbonus auf Werkzeuge ohne Übung."
+      },
+      "attackBonus": {
+        "Label": "Angriffsbonus nach Angriffsart"
+      },
+      "attackMode": {
+        "Label": "Vorteil nach Angriffsart",
+        "Tip": "1 für Vorteil, -1 für Nachteil auf diese Art von Angriff."
+      },
+      "allAttacksBonus": {
+        "Label": "Alle Angriffswürfe: Bonus"
+      },
+      "allAttacksMode": {
+        "Label": "Alle Angriffswürfe: Vorteil",
+        "Tip": "1 für Vorteil, -1 für Nachteil auf jeden Angriffswurf."
+      },
+      "damageBonus": {
+        "Label": "Schadensbonus nach Angriffsart",
+        "Tip": "Die Schadensart in eckigen Klammern hinter die Würfel schreiben, z. B. 1d6[fire] oder @abilities.cha.mod[radiant]."
+      },
+      "spellDC": {
+        "Label": "Bonus auf Zauber-SG"
+      },
+      "acBonus": {
+        "Label": "Bonus auf Rüstungsklasse"
+      },
+      "acFormula": {
+        "Label": "Formel für Rüstungsklasse",
+        "Tip": "Fügt eine Berechnung der RK hinzu; die höchste gültige wird verwendet. Als JSON lässt sie sich einschränken, z. B. {\"formula\": \"10 + @abilities.dex.mod + @abilities.con.mod\", \"armored\": false, \"label\": \"Ungerüstete Verteidigung\"}."
+      },
+      "damageResistance": {
+        "Label": "Schadensresistenz",
+        "Tip": "ALL steht für jede Schadensart."
+      },
+      "damageImmunity": {
+        "Label": "Schadensimmunität",
+        "Tip": "ALL steht für jede Schadensart."
+      },
+      "damageVulnerability": {
+        "Label": "Schadensanfälligkeit",
+        "Tip": "ALL steht für jede Schadensart."
+      },
+      "damageModification": {
+        "Label": "Änderung des erlittenen Schadens",
+        "Tip": "Wird auf erlittenen Schaden dieser Art addiert. Negative Zahlen verringern ihn, z. B. -3 wie Meister der schweren Rüstung."
+      },
+      "conditionImmunity": {
+        "Label": "Zustandsimmunität",
+        "Tip": "Die Kreatur kann diesen Zustand nicht erhalten."
+      },
+      "hpTempMax": {
+        "Label": "Temporäres TP-Maximum",
+        "Tip": "Erhöht oder senkt das Maximum, ohne zu heilen. Aktuelle oder temporäre Trefferpunkte nie mit einem Effekt ändern."
+      },
+      "hpBonusOverall": {
+        "Label": "Bonus auf TP-Maximum"
+      },
+      "hpBonusLevel": {
+        "Label": "TP-Bonus pro Stufe",
+        "Tip": "Wird mit der Charakterstufe multipliziert, z. B. 2 für das Talent Zäh."
+      },
+      "hpThreshold": {
+        "Label": "Schadensschwelle",
+        "Tip": "Schaden unter diesem Wert wird ignoriert."
+      },
+      "hpMax": {
+        "Label": "TP-Maximum",
+        "Tip": "Nur für NSC. Für Charaktere stattdessen die Boni verwenden."
+      },
+      "speed": {
+        "Label": "Bewegungsrate",
+        "Tip": "Erhöhen hebt sie nur an, eine höhere Bewegungsrate aus anderer Quelle gewinnt. Eine Bewegungsrate kann nur auf vorher berechnete verweisen, z. B. Fliegen auf Gehen."
+      },
+      "speedBonus": {
+        "Label": "Bonus auf alle Bewegungsraten",
+        "Tip": "Wird auf jede Bewegungsrate der Kreatur addiert."
+      },
+      "speedMultiplier": {
+        "Label": "Multiplikator der Bewegungsrate",
+        "Tip": "Multipliziert jede Bewegungsrate, z. B. verdoppelt 2, halbiert 0.5."
+      },
+      "hover": {
+        "Label": "Kann schweben"
+      },
+      "ignoredTerrain": {
+        "Label": "Ignoriert schwieriges Gelände",
+        "Tip": "all oder nonmagical ignoriert es ganz, eine Geländeart nur diese Art."
+      },
+      "senseRange": {
+        "Label": "Reichweite eines Sinns",
+        "Tip": "Erhöhen setzt die Reichweite oder hebt sie an, wenn die Kreatur den Sinn schon hat. Überschreiben setzt sie genau."
+      },
+      "size": {
+        "Label": "Größe",
+        "Tip": "Überschreiben setzt die Größe. Erhöhen macht die Kreatur nur größer."
+      },
+      "creatureType": {
+        "Label": "Kreaturentyp"
+      },
+      "creatureSubtype": {
+        "Label": "Kreaturenuntertyp"
+      },
+      "weaponProficiency": {
+        "Label": "Übung mit Waffen",
+        "Tip": "sim und mar geben alle einfachen oder Kriegswaffen, oder wähle eine einzelne Waffe."
+      },
+      "weaponMastery": {
+        "Label": "Waffenbeherrschung",
+        "Tip": "Gibt die Beherrschungseigenschaft dieser Waffe."
+      },
+      "weaponMasteryBonus": {
+        "Label": "Zusätzliche Beherrschungseigenschaft",
+        "Tip": "Eine weitere Beherrschungseigenschaft für Waffen, deren Beherrschung der Charakter schon hat."
+      },
+      "armorProficiency": {
+        "Label": "Übung mit Rüstungen",
+        "Tip": "lgt, med, hvy für leichte, mittelschwere, schwere Rüstung, shl für Schilde."
+      },
+      "proficiencyBonus": {
+        "Label": "Übungsbonus"
+      },
+      "initiativeBonus": {
+        "Label": "Initiativebonus"
+      },
+      "initiativeMode": {
+        "Label": "Vorteil auf Initiative",
+        "Tip": "1 für Vorteil, -1 für Nachteil auf Initiative."
+      },
+      "concentrationBonus": {
+        "Label": "Bonus auf Konzentrationsrettungswürfe"
+      },
+      "concentrationMode": {
+        "Label": "Vorteil auf Konzentrationsrettungswürfe",
+        "Tip": "1 für Vorteil, -1 für Nachteil auf Konzentrationsrettungswürfe."
+      },
+      "concentrationLimit": {
+        "Label": "Konzentrationslimit"
+      },
+      "deathSaveMode": {
+        "Label": "Vorteil auf Todesrettungswürfe",
+        "Tip": "1 für Vorteil, -1 für Nachteil auf Todesrettungswürfe."
+      },
+      "attunementMax": {
+        "Label": "Einstimmungsplätze"
+      },
+      "encumbranceMultiplier": {
+        "Label": "Multiplikator der Traglast",
+        "Tip": "2 verdoppelt die Schwelle, wie Kräftiger Körperbau."
+      },
+      "encumbranceBonus": {
+        "Label": "Bonus auf Traglast"
+      },
+      "scaleValue": {
+        "Label": "Skalenwert",
+        "Tip": "Ändert einen Skalenwert einer Klasse, Unterklasse oder eines anderen Merkmals, z. B. Kampfrausch des Barbaren. Die Skalenwerte des Charakters stehen oben, mit ihren aktuellen Werten."
+      },
+      "scaleNumber": {
+        "Label": "Skalenwert: Anzahl Würfel",
+        "Tip": "Für Würfel-Skalenwerte, z. B. macht +1 aus 3d6 Hinterhältiger Angriff 4d6."
+      },
+      "scaleFaces": {
+        "Label": "Skalenwert: Würfelgröße",
+        "Tip": "Für Würfel-Skalenwerte, z. B. macht +2 aus einem W6 einen W8."
+      },
+      "scaleModifiers": {
+        "Label": "Skalenwert: Würfelmodifikatoren",
+        "Tip": "Würfelmodifikatoren für Würfel-Skalenwerte, z. B. r=1 würfelt Einsen neu."
+      },
+      "hiddenItems": {
+        "Label": "Gegenstände auf dem Bogen ausblenden",
+        "Tip": "Eine Gegenstands-ID, eine Kennung oder typ:kennung wie spell:mage-hand."
+      },
+      "name": {
+        "Label": "Name des Akteurs",
+        "Tip": "{} steht für den aktuellen Namen. Ändert den Namen auf dem Bogen, nicht den des Tokens."
+      },
+      "img": {
+        "Label": "Bild des Akteurs"
+      },
+      "lightDim": {
+        "Label": "Radius dämmriges Licht"
+      },
+      "lightBright": {
+        "Label": "Radius helles Licht"
+      },
+      "lightColor": {
+        "Label": "Lichtfarbe"
+      },
+      "lightAlpha": {
+        "Label": "Lichtintensität"
+      },
+      "lightAnimation": {
+        "Label": "Lichtanimation"
+      },
+      "lightNegative": {
+        "Label": "Dunkelheit statt Licht",
+        "Tip": "true macht aus dem Licht Dunkelheit, z. B. für einen Dunkelheit-Effekt."
+      },
+      "light": {
+        "Label": "Gesamte Lichtkonfiguration",
+        "Tip": "Setzt mehrere Lichtwerte auf einmal mit einem JSON-Objekt."
+      }
+    },
+    "References": {
+      "Pick": "Verweis einfügen",
+      "Title": "Verweise",
+      "Search": "Verweise durchsuchen",
+      "IntroActor": "Klicke auf einen Verweis, um ihn in den Wert einzufügen. Skalenwerte zeigen den aktuellen Wert dieses Charakters.",
+      "IntroItem": "Klicke auf einen Verweis, um ihn in den Wert einzufügen. Öffne eine Klasse oder Unterklasse, um ihre Skalenwerte zu sehen.",
+      "Group": {
+        "Common": "Häufig",
+        "Abilities": "Attribute",
+        "Classes": "Klassenstufen",
+        "Scale": "Skalenwerte"
+      },
+      "Prof": "Übungsbonus",
+      "Level": "Charakterstufe",
+      "CR": "Herausforderungsgrad",
+      "HPMax": "TP-Maximum",
+      "SpellMod": "Modifikator des Zauberattributs",
+      "SpellDC": "Zauber-SG",
+      "AbilityMod": "{ability}-Modifikator",
+      "AbilityScore": "{ability}-Wert",
+      "ClassLevels": "Stufen in {name}",
+      "ScaleOf": "Skalenwerte: {name}"
+    },
+    "ScalePart": {
+      "Number": "Anzahl Würfel",
+      "Faces": "Würfelgröße",
+      "Die": "Würfel (z. B. d8)"
+    },
+    "Scale": {
+      "Own": "Dieser Charakter",
+      "Classes": "Klassen",
+      "Subclasses": "Unterklassen",
+      "Loading": "Skalenwerte werden geladen…",
+      "None": "Keine Skalenwerte.",
+      "TypeMismatch": "Das ist ein Skalenwert vom Typ {type}, der nicht zu diesem Attribut passt. Wähle den passenden Skalenwert-Eintrag."
+    }
+  }
+}

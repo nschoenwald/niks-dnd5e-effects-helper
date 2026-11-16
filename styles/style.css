@@ -1,0 +1,321 @@
+/* Nik's DnD5e Effects Helper. Prefix: nrb-. Colors come from Foundry's theme variables, so the windows follow the
+   Core Apps light/dark setting. */
+
+.nrb-condition-builder {
+  --nrb-group-border: var(--color-fieldset-border, var(--color-border));
+  --nrb-group-accent: var(--color-border-highlight, var(--color-warm-2));
+  --nrb-muted: var(--color-text-subtle, var(--color-text-secondary));
+  --nrb-code-bg: var(--color-cool-5-50, rgba(0, 0, 0, 0.1));
+  min-width: 520px;
+}
+
+.nrb-condition-builder .nrb-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nrb-condition-builder .nrb-content > .hint {
+  margin: 0;
+}
+
+.nrb-condition-builder .nrb-show-all {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: var(--font-size-12);
+  color: var(--nrb-muted);
+}
+
+/* Groups */
+.nrb-condition-builder .nrb-group {
+  margin: 0;
+  padding: 0.375rem 0.5rem;
+  border: 1px solid var(--nrb-group-border);
+  border-left: 3px solid var(--nrb-group-accent);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.nrb-condition-builder .nrb-group-header {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nrb-condition-builder .nrb-group-header select {
+  flex: 0 1 14rem;
+  font-weight: bold;
+}
+
+.nrb-condition-builder .nrb-children {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  margin: 0;
+  padding: 0 0 0 0.75rem;
+}
+
+.nrb-condition-builder .nrb-empty {
+  font-style: italic;
+  color: var(--nrb-muted);
+}
+
+/* Rules */
+.nrb-condition-builder .nrb-rule {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.nrb-condition-builder .nrb-rule > select,
+.nrb-condition-builder .nrb-rule > input {
+  flex: 1 1 8rem;
+  min-width: 0;
+}
+
+.nrb-condition-builder .nrb-rule > .nrb-value {
+  flex: 2 1 10rem;
+}
+
+.nrb-condition-builder .nrb-rule > multi-select.nrb-value {
+  min-width: 12rem;
+}
+
+.nrb-condition-builder .nrb-op-label {
+  flex: 0 0 auto;
+  color: var(--nrb-muted);
+  font-size: var(--font-size-12);
+}
+
+.nrb-condition-builder button.icon {
+  flex: 0 0 var(--input-height, 2rem);
+  width: var(--input-height, 2rem);
+  height: var(--input-height, 2rem);
+  padding: 0;
+}
+
+/* JSON preview */
+.nrb-condition-builder .nrb-preview summary {
+  cursor: pointer;
+  color: var(--nrb-muted);
+  font-size: var(--font-size-12);
+}
+
+.nrb-condition-builder .nrb-preview pre {
+  margin: 0.25rem 0 0;
+  padding: 0.375rem 0.5rem;
+  max-height: 12rem;
+  overflow: auto;
+  background: var(--nrb-code-bg);
+  border-radius: 4px;
+  font-size: var(--font-size-11);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Change configuration */
+.nrb-value-hint {
+  flex-basis: 100%;
+}
+
+/* Attribute key info in the change configuration */
+.nrb-key-pick {
+  flex: 0 0 var(--input-height, 2rem);
+}
+
+.nrb-key-info {
+  --nrb-info-border: var(--color-fieldset-border, var(--color-border));
+  --nrb-info-warn: var(--color-level-warning, #ee9b3a);
+  margin: 0 0 0.5rem;
+  padding: 0.375rem 0.5rem;
+  border: 1px solid var(--nrb-info-border);
+  border-left: 3px solid var(--color-border-highlight, var(--nrb-info-border));
+  border-radius: 4px;
+  font-size: var(--font-size-12);
+}
+
+.nrb-key-info p {
+  margin: 0.25rem 0 0;
+}
+
+.nrb-key-info p.hint {
+  font-size: inherit;
+}
+
+.nrb-key-info .nrb-key-warning,
+.nrb-attribute-picker .nrb-key-warning {
+  color: var(--color-level-warning, #ee9b3a);
+  margin: 0;
+}
+
+/* Attribute picker */
+.nrb-attribute-picker {
+  --nrb-picker-border: var(--color-fieldset-border, var(--color-border));
+  --nrb-picker-active: var(--color-cool-5-50, rgba(0, 0, 0, 0.15));
+  --nrb-picker-muted: var(--color-text-subtle, var(--color-text-secondary));
+  min-width: 520px;
+  min-height: 320px;
+}
+
+.nrb-attribute-picker .window-content {
+  overflow: hidden;
+}
+
+.nrb-picker {
+  display: grid;
+  grid-template-columns: minmax(200px, 2fr) 3fr;
+  gap: 0.75rem;
+  height: 100%;
+  min-height: 0;
+}
+
+.nrb-picker-side {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 0;
+}
+
+.nrb-picker-list {
+  flex: 1;
+  overflow-y: auto;
+  border: 1px solid var(--nrb-picker-border);
+  border-radius: 4px;
+  padding: 0.25rem;
+}
+
+.nrb-picker-group h4 {
+  margin: 0.5rem 0.25rem 0.125rem;
+  font-size: var(--font-size-12);
+  text-transform: uppercase;
+  color: var(--nrb-picker-muted);
+  border: none;
+}
+
+.nrb-picker-item {
+  display: block;
+  width: 100%;
+  min-height: 0;
+  height: auto;
+  padding: 0.25rem 0.5rem;
+  border: none;
+  background: none;
+  box-shadow: none;
+  text-align: left;
+  justify-content: flex-start;
+  line-height: 1.3;
+}
+
+.nrb-picker-item:hover,
+.nrb-picker-item.active {
+  background: var(--nrb-picker-active);
+}
+
+.nrb-picker-item.active {
+  font-weight: bold;
+}
+
+.nrb-picker-detail {
+  overflow-y: auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.nrb-picker-detail h3 {
+  margin: 0;
+}
+
+.nrb-picker-detail .form-group > label {
+  flex: 0 0 7rem;
+}
+
+.nrb-picker-detail code {
+  word-break: break-all;
+}
+
+.nrb-picker-tip {
+  margin: 0;
+}
+
+.nrb-picker-choices {
+  font-size: var(--font-size-12);
+  color: var(--nrb-picker-muted);
+}
+
+.nrb-picker-use {
+  margin-top: auto;
+}
+
+/* Reference picker */
+.nrb-ref-pick {
+  flex: 0 0 var(--input-height, 2rem);
+}
+
+.nrb-reference-picker {
+  --nrb-picker-border: var(--color-fieldset-border, var(--color-border));
+  --nrb-picker-active: var(--color-cool-5-50, rgba(0, 0, 0, 0.15));
+  --nrb-picker-muted: var(--color-text-subtle, var(--color-text-secondary));
+  min-width: 320px;
+  min-height: 300px;
+}
+
+.nrb-reference-picker .window-content {
+  overflow: hidden;
+}
+
+.nrb-references {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 100%;
+  min-height: 0;
+}
+
+.nrb-references > .hint {
+  margin: 0;
+}
+
+.nrb-reference.nrb-picker-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.5rem;
+}
+
+.nrb-reference code {
+  font-size: var(--font-size-11);
+  color: var(--nrb-picker-muted);
+  word-break: break-all;
+}
+
+.nrb-reference-note {
+  flex-basis: 100%;
+  font-size: var(--font-size-11);
+  color: var(--nrb-picker-muted);
+}
+
+.nrb-lazy-group > summary {
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  color: var(--nrb-picker-muted);
+}
+
+.nrb-lazy-group > .hint {
+  margin: 0 0.5rem;
+}
+
+/* Scale value select in the attribute picker */
+.nrb-scale-control {
+  flex: 1;
+  display: flex;
+}
+
+.nrb-scale-control > * {
+  flex: 1;
+}
